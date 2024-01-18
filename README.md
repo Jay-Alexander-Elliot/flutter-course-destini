@@ -1,5 +1,9 @@
 # Flutter Adventure Game - A Choose Your Own Adventure Project
 
+## The app is currently non-functional, I'll finish it later when I have more time.
+## I left off at Step 27/27/28
+
+
 ## Overview
 
 This project is a part of the comprehensive learning curriculum provided by [The App Brewery](https://www.appbrewery.co/), focusing on building a 'Choose Your Own Adventure' style game. It is designed for students who are undertaking the journey to understand and apply the concepts of Flutter and Dart in a practical, project-based manner.

@@ -1,4 +1,6 @@
+import 'package:destini/story.dart';
 import 'package:flutter/material.dart';
+import 'story_brain.dart';
 
 void main() => runApp(Destini());
 
@@ -12,6 +14,8 @@ class Destini extends StatelessWidget {
   }
 }
 
+StoryBrain storyBrain = StoryBrain();
+
 class StoryPage extends StatefulWidget {
   @override
   _StoryPageState createState() => _StoryPageState();
@@ -22,9 +26,9 @@ class _StoryPageState extends State<StoryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.symmetric(vertical: 50.0, horizontal: 15.0),
-        constraints: BoxConstraints.expand(),
-        decoration: BoxDecoration(
+        padding: const EdgeInsets.symmetric(vertical: 50.0, horizontal: 15.0),
+        constraints: const BoxConstraints.expand(),
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
                 'images/background.png'), // Assuming you have an image in an images folder
@@ -39,9 +43,9 @@ class _StoryPageState extends State<StoryPage> {
                 flex: 12,
                 child: Center(
                   child: Text(
-                    'Story text will go here.',
-                    style: TextStyle(
-                      fontSize: 25.0,
+                    storyBrain.getStory(),
+                    style: const TextStyle(
+                      fontSize: 22.0,
                     ),
                   ),
                 ),
@@ -53,18 +57,21 @@ class _StoryPageState extends State<StoryPage> {
                     backgroundColor: Colors.red,
                   ),
                   onPressed: () {
+                    setState(() {
+                      storyBrain.nextStory(1);
+                    });
                     //Choice 1 made by user.
                   },
                   child: Text(
-                    'Choice 1',
-                    style: TextStyle(
+                    storyBrain.getChoice1(),
+                    style: const TextStyle(
                       fontSize: 20.0,
                       color: Colors.white,
                     ),
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20.0,
               ),
               Expanded(
@@ -76,11 +83,14 @@ class _StoryPageState extends State<StoryPage> {
                       backgroundColor: Colors.blue,
                     ),
                     onPressed: () {
+                      setState(() {
+                        storyBrain.nextStory(2);
+                      });
                       //Choice 2 made by user.
                     },
                     child: Text(
-                      'Choice 2',
-                      style: TextStyle(
+                      storyBrain.getChoice2(),
+                      style: const TextStyle(
                         fontSize: 20.0,
                         color: Colors.white,
                       ),
